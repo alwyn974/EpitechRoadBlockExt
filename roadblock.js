@@ -31,6 +31,10 @@ const epiLog = (msg, type = "debug") => {
     }
 }
 
+const replaceAll = (string, search, replace) => {
+    return string.split(search).join(replace);
+}
+
 const printLogo = async () => {
     console.log(asciiArtLogo);
 }
@@ -62,7 +66,7 @@ const getJsonModuleInfo = async (module_name) => {
     let jsons = [];
     for (const mod of userJson.current) {
         if (module_name.indexOf("x") >= 0) {
-            let regex_module_name = module_name.replaceAll("x", "[0-9]");
+            let regex_module_name = replaceAll(module_name, "x", "[0-9]");
             let regex = new RegExp(regex_module_name);
             if (regex.test(mod.code_module))
                 jsons.push(mod);
@@ -75,7 +79,7 @@ const getJsonModuleInfo = async (module_name) => {
 }
 
 const getModuleInfo = async (line) => {
-    let words = line.replaceAll("(", "").replaceAll(")", "").split(" ");
+    let words = replaceAll(replaceAll(line, "(", ""), ")", "").split(" ");
     let text = null;
     for (const word of words) {
         if (moduleRegex.test(word)) {
