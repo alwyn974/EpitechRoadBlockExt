@@ -1,0 +1,17 @@
+{
+  "manifest_version": 2,
+  "name": "Epitech RoadBlock",
+  "version": "1.0",
+  "description": "Adds additional information to roadblock modules",
+  "permissions": ["*://intra.epitech.eu/*"],
+  "content_scripts": [{
+    "js": ["roadblock.js"],
+    "matches": ["*://intra.epitech.eu/module/*"]
+  }],
+  "icons": {
+    "16": "icon.png",
+    "32": "icon.png",
+    "64": "icon.png",
+    "128": "icon.png"
+  }
+}
