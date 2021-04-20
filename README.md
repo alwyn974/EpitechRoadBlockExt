@@ -1,11 +1,9 @@
 <div align="center">
     <h1>Web Extension Epitech RoadBlock v1.0</h1>
 
-![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/foapohjmcdnoijommffjdbefjpakplej
-label=Chrome%20Stars&logo=brightgreen&style=for-the-badge) ![Chrome Web Store](https://img.shields.io/chrome-web-store/users
-foapohjmcdnoijommffjdbefjpakplej?color=brightgreen&label=Chrome%20Downloads&style=for-the-badge) [![](https:/
-img.shields.io/badge/License-GPL--3.0-brightgreen.svg?style=for-the-badge)](https://github.com/alwyn974/MyEpitechExt/blob/main
-LICENSE)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/foapohjmcdnoijommffjdbefjpakplej?label=Chrome%20Stars&logo=brightgreen&style=for-the-badge)
+![Chrome Web Store](https://img.shields.io/chrome-web-store/users/foapohjmcdnoijommffjdbefjpakplej?color=brightgreen&label=Chrome%20Downloads&style=for-the-badge)
+[![](https://img.shields.io/badge/License-GPL--3.0-brightgreen.svg?style=for-the-badge)](https://github.com/alwyn974/EpitechRoadBlockExt/blob/main/LICENSE)
 
 <br><strong> Adds additional information to roadblock modules https://intra.epitech.eu </strong></p>
 
