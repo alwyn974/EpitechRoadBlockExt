@@ -5,6 +5,8 @@
 
 <br><strong> Adds additional information to roadblock modules https://intra.epitech.eu </strong></p>
 
+<img src="example.png"></img>
+
 </div>
 
 ## Working On:
