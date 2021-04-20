@@ -86,7 +86,7 @@ const getModuleInfo = async (line) => {
             let json = await getJsonModuleInfo(word);
             if (json.length !== 0) {
                 for (let i = 0; i < json.length; i++) {
-                    let failed = (json[i].grade === "-" || json[i].grade === "E");
+                    let failed = (json[i].grade === "-" || json[i].grade === "Echec");
                     if (text !== null) {
                         text = text + " | " + "Credits : " + (failed ? "0" : json[i].credits) + "/" + json[i].credits + " " + (failed ? cross : mark)
                         credits += failed ? 0 : parseInt(json[i].credits);
