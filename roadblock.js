@@ -28,6 +28,8 @@ const epiLog = (msg, type = "debug") => {
         case "warn":
             console.warn("[Epitech RoadBlock] %s", msg);
             break;
+        case "json":
+            console.debug("[Epitech RoadBlock] Json Debug", msg);
     }
 }
 
@@ -79,11 +81,13 @@ const getJsonModuleInfo = async (module_name) => {
 }
 
 const getModuleInfo = async (line) => {
-    let words = replaceAll(replaceAll(line, "(", ""), ")", "").split(" ");
+    let str = replaceAll(line.replace(/[()]/g,""), "/", " ");
+    let words = str.split(" ");
     let text = null;
     for (const word of words) {
         if (moduleRegex.test(word)) {
             let json = await getJsonModuleInfo(word);
+            epiLog(json, "json");
             if (json.length !== 0) {
                 for (let i = 0; i < json.length; i++) {
                     let failed = (json[i].grade === "-" || json[i].grade === "Echec");

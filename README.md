@@ -1,5 +1,5 @@
 <div align="center">
-    <h1>Web Extension Epitech RoadBlock v1.0</h1>
+    <h1>Web Extension Epitech RoadBlock v1.2</h1>
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/stars/foapohjmcdnoijommffjdbefjpakplej?label=Chrome%20Stars&logo=brightgreen&style=for-the-badge)
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/users/foapohjmcdnoijommffjdbefjpakplej?color=brightgreen&label=Chrome%20Downloads&style=for-the-badge)
@@ -20,10 +20,10 @@
 ## How to install
 <ul>
 	<li>
-      Chrome
-      <ul>
-        <li>Just add it to chrome from the <a href="https://chrome.google.com/webstore/detail/epitech-roadblock/foapohjmcdnoijommffjdbefjpakplej/related?hl=fr">store</a></li>
-      </ul>
+        Chrome
+        <ul>
+            <li>Just add it to chrome from the <a href="https://chrome.google.com/webstore/detail/epitech-roadblock/foapohjmcdnoijommffjdbefjpakplej/related?hl=fr">store</a></li>
+        </ul>
     </li>
 	<li>Android
 		<ul>
