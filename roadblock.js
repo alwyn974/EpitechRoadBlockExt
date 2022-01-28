@@ -7,11 +7,14 @@ const asciiArtLogo = "\n" +
     "\\____| .__/|_|\\__\\___|\\___|_| |_| \\_| \\_\\___/ \\__,_|\\__,_\\____/|_|\\___/ \\___|_|\\_\\\n" +
     "     | |                                                                          \n" +
     "     |_|                                                                          \n\n";
-const homeUrl = "https://intra.epitech.eu/?format=json";
+const userUrl = "https://intra.epitech.eu/user/?format=json";
 const moduleRegex = new RegExp("([A-Z]-[A-Z]{3}-([0-9]|x){3})");
 const cross = "✘";
 const mark = "✔";
-let userJson = {};
+let noteUrl = "https://intra.epitech.eu/user/%user%/notes/?format=json";
+let scholaryear = 2021;
+let login = "";
+let notesJson = {};
 let credits = 0;
 
 const epiLog = (msg, type = "debug") => {
@@ -64,15 +67,24 @@ const getUrl = async (url) => {
     return data;
 }
 
+const setupScholarYearAndUser = async () => {
+    let userInfo = await getUrl(userUrl);
+    if (!userInfo || !userInfo.scolaryear || !userInfo.login)
+        epiLog("Can't retrieve the scholar year from user url", "error");
+    scholaryear = parseInt(userInfo.scolaryear) || 2021;
+    login = userInfo.login;
+    noteUrl = noteUrl.replace("%user%", login);
+}
+
 const getJsonModuleInfo = async (module_name) => {
     let jsons = [];
-    for (const mod of userJson.current) {
-        if (module_name.indexOf("x") >= 0) {
+    for (const mod of notesJson) {
+        if (module_name.indexOf("x") >= 0 && mod.scolaryear === scholaryear) {
             let regex_module_name = replaceAll(module_name, "x", "[0-9]");
             let regex = new RegExp(regex_module_name);
-            if (regex.test(mod.code_module))
+            if (regex.test(mod.codemodule))
                 jsons.push(mod);
-        } else if (mod.code_module === module_name) {
+        } else if (mod.codemodule === module_name && mod.scolaryear === scholaryear) {
             jsons.push(mod);
             break;
         }
@@ -133,7 +145,8 @@ const main = async () => {
     epiLog("Loading Epitech Roadblock extension...");
     await printLogo();
     await checkUrl();
-    userJson = await getUrl(homeUrl);
+    await setupScholarYearAndUser();
+    notesJson = (await getUrl(noteUrl)).modules;
     await getRoadBLockModules();
 }
 
