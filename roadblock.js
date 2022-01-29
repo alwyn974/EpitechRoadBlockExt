@@ -93,7 +93,7 @@ const getJsonModuleInfo = async (module_name) => {
 }
 
 const getModuleInfo = async (line) => {
-    let str = replaceAll(line.replace(/[()]/g,""), "/", " ");
+    let str = replaceAll(line.replace(/[()]/g, ""), "/", " ");
     let words = str.split(" ");
     let text = null;
     for (const word of words) {
@@ -112,7 +112,7 @@ const getModuleInfo = async (line) => {
                     }
                 }
             } else
-                text = "You are not registered for this module !";
+                text = (text != null ? text + " | " : "") + "You are not registered for this module !";
         }
     }
     return text;
