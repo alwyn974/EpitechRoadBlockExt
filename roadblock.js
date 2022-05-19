@@ -16,6 +16,9 @@ let scholaryear = 2021;
 let login = "";
 let notesJson = {};
 let credits = 0;
+let fixedModules = [
+    {key: "B-PGM-300", value: "B-PDG-300"},
+]
 
 const epiLog = (msg, type = "debug") => {
     switch (type) {
@@ -46,7 +49,7 @@ const printLogo = async () => {
 
 const checkUrl = async () => {
     epiLog("Checking url to match roadblock modules...")
-    const roadBlockUrlRegex = new RegExp(".*:\\/\\/intra.epitech.eu\\/module\\/[0-9]{4}\\/B-EPI-[0-9]{3}\\/.*");
+    const roadBlockUrlRegex = new RegExp(".*:\\/\\/intra.epitech.eu\\/module\\/\\d{4}\\/B-EPI-\\d{3}\\/.*");
     let url = window.location.href;
     if (!roadBlockUrlRegex.test(url))
         throw "The url doesn't match Epitech Roadblock modules !";
@@ -71,12 +74,15 @@ const setupScholarYearAndUser = async () => {
     let userInfo = await getUrl(userUrl);
     if (!userInfo || !userInfo.scolaryear || !userInfo.login)
         epiLog("Can't retrieve the scholar year from user url", "error");
-    scholaryear = parseInt(userInfo.scolaryear) || 2021;
+    scholaryear = parseInt(window.location.href.split("/")[4]) || parseInt(userInfo.scolaryear) || 2021;
     login = userInfo.login;
     noteUrl = noteUrl.replace("%user%", login);
 }
 
 const getJsonModuleInfo = async (module_name) => {
+    let filteredFixedModules = fixedModules.filter(fixedModule => fixedModule.key === module_name);
+    if (filteredFixedModules && filteredFixedModules.length > 0)
+        module_name = filteredFixedModules[0].value;
     let jsons = [];
     for (const mod of notesJson) {
         if (module_name.indexOf("x") >= 0 && mod.scolaryear === scholaryear) {
