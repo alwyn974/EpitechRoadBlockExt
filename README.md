@@ -41,4 +41,8 @@
 	</li>
 </ul>
 
+## Fix some modules codes
+
+- Create a Pull Request modifying the file `modules.json` with the correct key and value
+
 > :bulb: Don't forget to put a star on the project to support the project
